@@ -4,6 +4,7 @@ namespace JonLynch\UkWeatherTile;
 
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use JonLynch\UkWeatherTile\Commands\FetchMetOfficeDataCommand;
 
 class UkWeatherTileServiceProvider extends ServiceProvider
 {
@@ -11,7 +12,7 @@ class UkWeatherTileServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                FetchDataMetOfficeCommand::class,
+                FetchMetOfficeDataCommand::class,
             ]);
         }
 

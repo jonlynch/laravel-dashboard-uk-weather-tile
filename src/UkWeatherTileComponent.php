@@ -17,8 +17,8 @@ class UkWeatherTileComponent extends Component
     public function render()
     {
         return view('dashboard-uk-weather-tile::tile', [
-            'stations' => MyStore::make()->stations(),
-            'refreshIntervalInSeconds' => config('dashboard.tiles.velo.refresh_interval_in_seconds') ?? 60,
+            'forecasts' => UkWeatherStore::make()->forecasts(),
+            'refreshIntervalInSeconds' => config('dashboard.tiles.ukweather.refresh_interval_in_seconds') ?? 60,
 
         ]);
     }
