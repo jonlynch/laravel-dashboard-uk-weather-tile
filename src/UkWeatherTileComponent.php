@@ -19,7 +19,7 @@ class UkWeatherTileComponent extends Component
         return view('dashboard-uk-weather-tile::tile', [
             'forecasts' => UkWeatherStore::make()->forecasts(),
             'refreshIntervalInSeconds' => config('dashboard.tiles.ukweather.refresh_interval_in_seconds') ?? 60,
-
+            'location' => config('dashboard.tiles.ukweather.location_name') ?? 'Local',
         ]);
     }
 }

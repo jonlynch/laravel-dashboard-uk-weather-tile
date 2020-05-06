@@ -3,6 +3,7 @@
 namespace JonLynch\UkWeatherTile\Services;
 
 use Illuminate\Support\Facades\Http;
+use Carbon\Carbon;
 
 class Forecasts
 {
@@ -25,10 +26,18 @@ class Forecasts
                     'time' => $forecast['time'],
                     'temp' => $forecast['screenTemperature'],
                     'windSpeed' => $forecast['windSpeed10m'],
-                    'feelsLike' => $forecast['feelsLikeTemperature']
+                    'windGust' => $forecast['max10mWindGust'],
+                    'windDir' => $forecast['windDirectionFrom10m'],
+                    'feelsLike' => $forecast['feelsLikeTemperature'],
+                    'probOfPrecip' => $forecast['probOfPrecipitation'],
+                    'precipRate' => $forecast['precipitationRate'],
                 ];
             })
-            ->take(12)
+            ->filter(function ($forecast){
+                return Carbon::now() < Carbon::createFromTimeStamp(strtotime($forecast['time']))
+                                    ->setTimezone('Europe/London');
+            })
+            ->take(24)
             ->toArray();
     }
 }
