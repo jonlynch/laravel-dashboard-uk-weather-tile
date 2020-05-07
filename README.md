@@ -13,16 +13,16 @@ This tile can be used on [the Laravel Dashboard]https://docs.spatie.be/laravel-d
 You can install the package via composer:
 
 ```bash
-composer require :vendor/:package_name
+composer require jonlynch/laravel-dashboard-uk-weather-tile
 ```
 
 ## Usage
 
-In your dashboard view you use the `livewire:my-tile` component.
+In your dashboard view you use the `livewire:uk-weather-tile` component.
 
 ```html
 <x-dashboard>
-    <livewire:my-tile position="e7:e16" />
+    <livewire:uk-weather-tile position="e7:e16" />
 </x-dashboard>
 ```
 
