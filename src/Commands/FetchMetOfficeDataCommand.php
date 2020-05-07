@@ -16,15 +16,16 @@ class FetchMetOfficeDataCommand extends Command
     {
         $this->info('Fetching weather data stations...');
 
-        $forecasts = Forecasts::getForecasts(
-            config('dashboard.tiles.ukweather.client_id'),
-            config('dashboard.tiles.ukweather.client_secret'),
-            config('dashboard.tiles.ukweather.lat'),
-            config('dashboard.tiles.ukweather.lon')
-        );
+        foreach (config('dashboard.tiles.ukweather.configurations') ?? [] as $location => $configuration) {
+            $forecasts = Forecasts::getForecasts(
+                config('dashboard.tiles.ukweather.client_id'),
+                config('dashboard.tiles.ukweather.client_secret'),
+                $configuration['lat'],
+                $configuration['lon']
+            );
 
-        UkWeatherStore::make()->setForecasts($forecasts);
-
+            UkWeatherStore::make()->setForecastsFor($location, $forecasts);
+        }
         $this->info('All done!');
     }
 }

@@ -18,15 +18,15 @@ class UkWeatherStore
         $this->tile = Tile::firstOrCreateForName("ukWeather");
     }
 
-    public function setForecasts(array $data): self
+    public function setForecastsFor(string $location, array $data): self
     {
-        $this->tile->putData('forecasts', $data);
+        $this->tile->putData('forecasts-'.$location, $data);
 
         return $this;
     }
 
-    public function forecasts(): array
+    public function forecastsFor(string $location): array
     {
-        return $this->tile->getData('forecasts') ?? [];
+        return $this->tile->getData('forecasts-'.$location) ?? [];
     }
 }
