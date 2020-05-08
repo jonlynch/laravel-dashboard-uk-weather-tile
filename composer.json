@@ -1,17 +1,16 @@
 {
-    "name": ":vendor/:package_name",
-    "description": ":package_description",
+    "name": "jonlynch/laravel-dashboard-uk-weather-tile",
+    "description": "A package to add UK Met Office weather forecast tiles to Laravel Dashboard",
     "keywords": [
-        ":vendor",
-        ":package_name"
+        "laravel-dashboard",
+        "jonlynch"
     ],
-    "homepage": "https://github.com/:vendor/:package_name",
+    "homepage": "https://github.com/jonlynch/laravel-dashboard-uk-weather-tile",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": "https://:vendor.be",
+            "name": "Jon Lynch",
+            "email": ":jon.lynch@remove.ymail.com",
             "role": "Developer"
         }
     ],
@@ -24,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\MyTile\\": "src"
+            "JonLynch\\UkWeatherTile\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\MyTile\\Tests\\": "tests"
+            "JonLynch\\UkWeatherTile\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -43,7 +42,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\MyTile\\MyTileServiceProvider"
+                "JonLynch\\UkWeatherTile\\UkWeatherTileServiceProvider"
             ]
         }
     },
