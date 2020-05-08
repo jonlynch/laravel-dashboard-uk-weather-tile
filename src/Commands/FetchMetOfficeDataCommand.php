@@ -16,7 +16,7 @@ class FetchMetOfficeDataCommand extends Command
     {
         $this->info('Fetching weather data stations...');
 
-        foreach (config('dashboard.tiles.ukweather.configurations') ?? [] as $location => $configuration) {
+        foreach (config('dashboard.tiles.ukweather.locations') ?? [] as $location => $configuration) {
             $forecasts = Forecasts::getForecasts(
                 config('dashboard.tiles.ukweather.client_id'),
                 config('dashboard.tiles.ukweather.client_secret'),

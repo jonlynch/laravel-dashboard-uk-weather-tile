@@ -10,13 +10,13 @@
     "authors": [
         {
             "name": "Jon Lynch",
-            "email": ":jon.lynch@remove.ymail.com",
+            "email": "jon.lynch@remove.ymail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^7.4",
-        ":vendor/laravel-dashboard": "^1.0"
+        "spatie/laravel-dashboard": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0"

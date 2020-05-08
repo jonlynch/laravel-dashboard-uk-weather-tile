@@ -10,22 +10,22 @@ class UkWeatherTileComponent extends Component
     public $position;
 
     /** @var string */
-    public $configurationName;
+    public $locationName;
 
 
-    public function mount(string $position, string $configurationName)
+    public function mount(string $position, string $locationName)
     {
         $this->position = $position;
 
-        $this->configurationName = $configurationName;
+        $this->locationName = $locationName;
     }
 
     public function render()
     {
         return view('dashboard-uk-weather-tile::tile', [
-            'forecasts' => UkWeatherStore::make()->forecastsFor($this->configurationName),
+            'forecasts' => UkWeatherStore::make()->forecastsFor($this->locationName),
             'refreshIntervalInSeconds' => config('dashboard.tiles.ukweather.refresh_interval_in_seconds') ?? 60,
-            'location' => $this->configurationName,
+            'location' => $this->locationName,
         ]);
     }
 }

@@ -19,14 +19,14 @@ class Forecasts
         $response = Http::withHeaders($headers)
             ->get($endpoint)
             ->json();
-
+        
         return collect($response['features'][0]['properties']['timeSeries'])
             ->map(function (array $forecast) {
                 return [
                     'time' => $forecast['time'],
                     'temp' => $forecast['screenTemperature'],
                     'windSpeed' => $forecast['windSpeed10m'],
-                    'windGust' => $forecast['max10mWindGust'],
+                    'windGust' => $forecast['max10mWindGust'] ?? '',
                     'windDir' => $forecast['windDirectionFrom10m'],
                     'feelsLike' => $forecast['feelsLikeTemperature'],
                     'probOfPrecip' => $forecast['probOfPrecipitation'],
