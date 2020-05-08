@@ -29,7 +29,7 @@ In your dashboard view you use the `livewire:uk-weather-tile` component. You may
 
 Add the config to the tiles sections of your `config/dashboard.php`
 
-```php 
+```php
 // in config/dashboard.php
 
 return [

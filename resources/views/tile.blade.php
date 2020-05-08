@@ -6,7 +6,7 @@
         <div wire:poll.{{ $refreshIntervalInSeconds }}s class="self-center grid grid-cols-4 row-gap-2 col-gap-1">
             {{-- tile content --}}
             <div>Time</div>
-            <div>Temp &deg;C (Feels</div>
+            <div>Temp &deg;C (Feels)</div>
             <div>Wind mph (Gust)</div>
             <div>Precipitation mm/hr</div>
             @foreach ($forecasts as $forecast)
