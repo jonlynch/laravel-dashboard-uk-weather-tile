@@ -12,7 +12,6 @@
             @foreach ($forecasts as $forecast)
             <?php 
             $time = \Carbon\Carbon::createFromTimeStamp(strtotime($forecast['time']))
-                                    ->setTimezone('Europe/London');
             ?>
              <div>   {{$time ->format('H:i')}}</div>
              <div> {{number_format($forecast['temp'], 0)}} ({{number_format($forecast['feelsLike'], 0)}}) </div>
