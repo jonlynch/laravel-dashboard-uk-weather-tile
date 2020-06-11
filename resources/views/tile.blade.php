@@ -19,7 +19,7 @@
              <td class="p-0">   {{$time ->format('H:i')}}</td>
              <td class="p-0">  {{number_format($forecast['temp'], 0)}} ({{number_format($forecast['feelsLike'], 0)}}) </td>
              <td class="p-0">
-             <svg class= "inline-block" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" style="transform:rotate({{$forecast['windBearing']+180}}deg"
+             <svg class= "inline-block" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1.5rem" height="1.5rem" style="transform:rotate({{$forecast['windBearing']+180}}deg"
                 viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve">
             <path d="M3.74,14.5c0-2.04,0.51-3.93,1.52-5.66s2.38-3.1,4.11-4.11s3.61-1.51,5.64-1.51c1.52,0,2.98,0.3,4.37,0.89
                 s2.58,1.4,3.59,2.4s1.81,2.2,2.4,3.6s0.89,2.85,0.89,4.39c0,1.52-0.3,2.98-0.89,4.37s-1.4,2.59-2.4,3.59s-2.2,1.8-3.59,2.39
