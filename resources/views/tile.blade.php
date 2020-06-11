@@ -1,24 +1,24 @@
 <x-dashboard-tile :position="$position">
-    <div class="h-full justify-items-center text-center">
+    <div class="h-full justify-items-center text-center -ml-1 -mr-2">
         <h1 class="font-medium text-dimmed text-sm uppercase tracking-wide pb-2">
             {{$location}} Weather
         </h1>
         <table wire:poll.{{ $refreshIntervalInSeconds }}s class="self-center table-auto">
             {{-- tile content --}}
             <tr>
-                <th>Time</th>
-                <th>Temp &deg;C (Feels)</th>
+                <th class="p-0">Time</th>
+                <th class="p-0">Temp &deg;C (Feels)</th>
                 <th class="p-0">Wind mph (Gust)</th>
-                <th class="p-0">Rain mm/hr</th>
+                <th class="p-0">Rain mm</th>
             </tr>
             @foreach ($forecasts as $forecast)
             <?php 
             $time = \Carbon\Carbon::createFromTimeStamp(strtotime($forecast['time']))
             ?>
             <tr>
-             <td>   {{$time ->format('H:i')}}</td>
-             <td> {{number_format($forecast['temp'], 0)}} ({{number_format($forecast['feelsLike'], 0)}}) </td>
-             <td class="p-0 text-left">
+             <td class="p-0">   {{$time ->format('H:i')}}</td>
+             <td class="p-0">  {{number_format($forecast['temp'], 0)}} ({{number_format($forecast['feelsLike'], 0)}}) </td>
+             <td class="p-0">
              <svg class= "inline-block" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" style="transform:rotate({{$forecast['windBearing']+180}}deg"
                 viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve">
             <path d="M3.74,14.5c0-2.04,0.51-3.93,1.52-5.66s2.38-3.1,4.11-4.11s3.61-1.51,5.64-1.51c1.52,0,2.98,0.3,4.37,0.89
