@@ -36,8 +36,7 @@ return [
     // ...
     tiles => [
         'ukweather' => [
-            'client_id' => env('MET_OFFICE_CLIENT_ID'),
-            'client_secret' => env('MET_OFFICE_CLIENT_SECRET'),
+            'client_id' => env('MET_OFFICE_API_KEY'),
             'locations' => [
                 'St Bees' => [
                     'lat' => '54.4891',
