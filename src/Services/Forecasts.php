@@ -19,7 +19,7 @@ class Forecasts
             ->get($endpoint)
             ->json();
 
-        dd($response);
+        dd($endpoint);
         
         return collect($response->features[0]['properties']['timeSeries'])
             ->map(function (array $forecast) {
