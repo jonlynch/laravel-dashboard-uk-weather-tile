@@ -9,7 +9,7 @@ class Forecasts
 {
     public static function getForecasts(string $apiKey, string $lat, string $lon): array
     {
-        $endpoint = "https://data.hub.api.metoffice.gov.uk/sitespecific/v0/point/hourly?dataSource=BD1&latitude={$lat}longitude={$lon}";
+        $endpoint = "https://data.hub.api.metoffice.gov.uk/sitespecific/v0/point/hourly?dataSource=BD1&latitude={$lat}&longitude={$lon}";
 
         $headers = [
             "apikey" => $apiKey
@@ -18,8 +18,6 @@ class Forecasts
         $response = Http::withHeaders($headers)
             ->get($endpoint)
             ->json();
-
-        dd($response);
         
         return collect($response['features'][0]['properties']['timeSeries'])
             ->map(function (array $forecast) {
