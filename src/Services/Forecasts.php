@@ -12,17 +12,16 @@ class Forecasts
         $endpoint = "https://data.hub.api.metoffice.gov.uk/sitespecific/v0/point/hourly?dataSource=BD1&latitude={$lat}longitude={$lon}";
 
         $headers = [
-            "apikey" => $apiKey,
-            "accept" => "application/json"
+            "apikey" => $apiKey
         ];
 
         $response = Http::withHeaders($headers)
             ->get($endpoint)
             ->json();
 
+        dd($response);
         
-        
-        return collect($response['features'][0]['properties']['timeSeries'])
+        return collect($response->features[0]['properties']['timeSeries'])
             ->map(function (array $forecast) {
                 return [
                     'time' => $forecast['time'],
